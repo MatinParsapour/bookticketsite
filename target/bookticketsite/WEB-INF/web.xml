@@ -4,4 +4,25 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>ceoValidation</servlet-name>
+    <servlet-class>servlets.ceoservlets.cEOCodeValidation</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ceoEnter</servlet-name>
+    <servlet-class>servlets.ceoservlets.CEOEnterServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ceoValidation</servlet-name>
+    <url-pattern>/ceoValidation</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ceoEnter</servlet-name>
+    <url-pattern>/ceoEnter</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
