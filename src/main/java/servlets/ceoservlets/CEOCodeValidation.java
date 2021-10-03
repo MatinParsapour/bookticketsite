@@ -3,6 +3,7 @@ package servlets.ceoservlets;
 import domain.CEO;
 import util.ApplicationContext;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +26,8 @@ public class CEOCodeValidation extends HttpServlet {
             out.println("Welcome : " + ceo.getFirstName() + " " + ceo.getLastName());
         }else{
             out.println("The code is wrong");
-
+            RequestDispatcher rd = req.getRequestDispatcher("");
+            rd.forward(req,resp);
         }
     }
 }
