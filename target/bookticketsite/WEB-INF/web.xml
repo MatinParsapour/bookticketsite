@@ -7,13 +7,23 @@
 
   <servlet>
     <servlet-name>ceoValidation</servlet-name>
-    <servlet-class>servlets.ceoservlets.cEOCodeValidation</servlet-class>
+    <servlet-class>servlets.ceoservlets.CEOCodeValidation</servlet-class>
   </servlet>
 
   <servlet>
     <servlet-name>ceoEnter</servlet-name>
     <servlet-class>servlets.ceoservlets.CEOEnterServlet</servlet-class>
   </servlet>
+
+  <servlet>
+    <servlet-name>CustomerEnterServlet</servlet-name>
+    <servlet-class>servlets.customerservlets.CustomerEnterServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CustomerEnterServlet</servlet-name>
+    <url-pattern>/customerEnter</url-pattern>
+  </servlet-mapping>
 
   <servlet-mapping>
     <servlet-name>ceoValidation</servlet-name>
@@ -24,5 +34,5 @@
     <servlet-name>ceoEnter</servlet-name>
     <url-pattern>/ceoEnter</url-pattern>
   </servlet-mapping>
-  
+
 </web-app>

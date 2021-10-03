@@ -15,6 +15,16 @@
     <servlet-class>servlets.ceoservlets.CEOEnterServlet</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>CustomerEnterServlet</servlet-name>
+    <servlet-class>servlets.customerservlets.CustomerEnterServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CustomerEnterServlet</servlet-name>
+    <url-pattern>/customerEnter</url-pattern>
+  </servlet-mapping>
+
   <servlet-mapping>
     <servlet-name>ceoValidation</servlet-name>
     <url-pattern>/ceoValidation</url-pattern>
