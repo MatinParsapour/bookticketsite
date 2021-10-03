@@ -18,7 +18,7 @@ public class CEOEnterServlet extends HttpServlet {
         out.println("<body style=\"background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.istockphoto.com%2Fphotos%2Fceo-text-on-white-background-picture-id481914276&f=1&nofb=1'); background-size: cover\">");
         out.println("<form action=\"ceoValidation\">");
         out.println("<div style=\"text-align: center\">");
-        out.println("<input type=\"text\" name='ceoCode' onchange=\"this.value = parseInt(this.value);\">");
+        out.println("<input type=\"text\" name='ceoCode' onchange=\"this.value = parseInt(this.value);\" required>");
         out.println("<br>");
         out.println("<br>");
         out.println("<input type=\"submit\" value=\"Accept\">");
