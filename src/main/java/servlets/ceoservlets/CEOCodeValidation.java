@@ -26,8 +26,6 @@ public class CEOCodeValidation extends HttpServlet {
             out.println("Welcome : " + ceo.getFirstName() + " " + ceo.getLastName());
         }else{
             out.println("The code is wrong");
-            RequestDispatcher rd = req.getRequestDispatcher("");
-            rd.forward(req,resp);
         }
     }
 }

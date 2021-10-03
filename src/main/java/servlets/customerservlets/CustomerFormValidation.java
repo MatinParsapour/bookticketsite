@@ -26,8 +26,6 @@ public class CustomerFormValidation extends HttpServlet {
         Customer existsCustomer = ApplicationContext.getCustomerService().checkCustomer(userName);
         if(existsCustomer != null){
             out.println("The username already exists choose another one");
-            RequestDispatcher rd = req.getRequestDispatcher("customerEnter");
-            rd.forward(req,resp);
         }else{
             HttpSession session = req.getSession(false);
             session.setAttribute("userName",userName);
