@@ -10,6 +10,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Inheritance
@@ -43,10 +44,10 @@ public class User extends BaseEntity<Long> {
     private long nationalCode;
 
     @JoinColumn(name = BIRTH_DATE)
-    private LocalDate birthDate;
+    private Date birthDate;
 
     public User(String firstName, String lastName, String email, long phoneNumber,
-                long nationalCode, LocalDate birthDate) {
+                long nationalCode, Date birthDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
