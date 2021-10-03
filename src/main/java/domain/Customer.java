@@ -25,7 +25,7 @@ public class Customer extends User{
     private String userName;
 
     @JoinColumn(name = PASSWORD)
-    private long password;
+    private String password;
 
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private List<CreditCard> creditCards;
@@ -36,7 +36,7 @@ public class Customer extends User{
     @OneToOne(cascade = CascadeType.ALL)
     private History history;
 
-    public Customer(String firstName, String lastName, String email, long phoneNumber, long nationalCode, LocalDate birthDate, String userName, long password) {
+    public Customer(String firstName, String lastName, String email, long phoneNumber, long nationalCode, LocalDate birthDate, String userName, String password) {
         super(firstName, lastName, email, phoneNumber, nationalCode, birthDate);
         this.userName = userName;
         this.password = password;
