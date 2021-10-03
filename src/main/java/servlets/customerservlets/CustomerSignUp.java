@@ -43,7 +43,7 @@ public class CustomerSignUp extends HttpServlet {
                 "        </div>\n" +
                 "        <div align = \"center\" style=\"margin-top: .5cm;\">\n" +
                 "            <label for=\"customerPassword\">Password : </label>\n" +
-                "            <input id=\"customerPassword\" type=\"password\" pattern=\"^[:;,\\-@0-9a-zA-Zâéè'.\\s]{8,16}$\" name=\"customerPassword\" placeholder=\"between 8 to 16 character\" required>\n" +
+                "            <input id=\"customerPassword\" type=\"password\" pattern=\"^[0-9a-zA-Z]{8,16}$\" name=\"customerPassword\" placeholder=\"between 8 to 16 character\" required>\n" +
                 "        </div>\n" +
                 "        <div style=\"margin-top: .5cm;margin-left: 555;\">\n" +
                 "            <label for=\"customerBirthday\">Birthday : </label>\n" +
