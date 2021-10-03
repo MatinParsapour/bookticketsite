@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -36,7 +37,7 @@ public class Customer extends User{
     @OneToOne(cascade = CascadeType.ALL)
     private History history;
 
-    public Customer(String firstName, String lastName, String email, long phoneNumber, long nationalCode, LocalDate birthDate, String userName, String password) {
+    public Customer(String firstName, String lastName, String email, long phoneNumber, long nationalCode, Date birthDate, String userName, String password) {
         super(firstName, lastName, email, phoneNumber, nationalCode, birthDate);
         this.userName = userName;
         this.password = password;

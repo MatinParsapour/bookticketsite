@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Setter
@@ -27,7 +28,7 @@ public class CEO extends User{
     @JoinColumn(name = COMPANY)
     private Company company;
 
-    public CEO(String firstName, String lastName, String email, long phoneNumber, long nationalCode, LocalDate birthDate, long cEOCode) {
+    public CEO(String firstName, String lastName, String email, long phoneNumber, long nationalCode, Date birthDate, long cEOCode) {
         super(firstName, lastName, email, phoneNumber, nationalCode, birthDate);
         this.cEOCode = cEOCode;
     }
