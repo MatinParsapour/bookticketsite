@@ -22,4 +22,8 @@ public class CustomerServiceImpl extends BaseServiceImpl<Customer, Long, Custome
     }
 
 
+    @Override
+    public Customer checkCustomer(String username) {
+        return repository.findCustomerByUserName(username);
+    }
 }
