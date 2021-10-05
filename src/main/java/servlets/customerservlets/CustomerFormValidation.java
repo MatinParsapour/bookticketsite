@@ -3,6 +3,7 @@ package servlets.customerservlets;
 import domain.Customer;
 import lombok.SneakyThrows;
 import util.ApplicationContext;
+import util.SecurityUser;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,7 +38,8 @@ public class CustomerFormValidation extends HttpServlet {
             String password = req.getParameter("customerPassword");
             Date birthDate = new SimpleDateFormat("yyyy-mm-dd").parse(req.getParameter("customerBirthday"));
             Customer customer = new Customer(firstName,lastName,email,phoneNumber,nationalCode,birthDate,userName,password);
-            ApplicationContext.getCustomerService().createOrUpdate(customer);
+            customer = ApplicationContext.getCustomerService().createOrUpdate(customer);
+            SecurityUser.setCustomer(customer);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/jsp/customerjsp/CustomerMainMenu.jsp");
             requestDispatcher.forward(req,resp);
         }
