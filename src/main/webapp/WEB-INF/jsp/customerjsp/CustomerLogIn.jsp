@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <title>Customer log in</title>
     <h1 align = "center">Welcome</h1>
 </head>
 <body>

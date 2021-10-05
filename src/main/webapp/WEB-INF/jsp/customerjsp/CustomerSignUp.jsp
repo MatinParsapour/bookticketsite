@@ -11,6 +11,7 @@
 </head>
 <body>
 <head>
+    <title>Customer sign up</title>
     <h1 align="center">Welcome</h1>
     <h2 align="center">Fill the below form</h2>
 </head>
