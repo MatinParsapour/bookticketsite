@@ -17,5 +17,7 @@ public class HistoryServiceImpl extends BaseServiceImpl<History,Long, HistoryRep
         super(repository);
     }
 
-
+    public List<History> findCustomerHistory(){
+        return repository.findCustomerTickets();
+    }
 }
