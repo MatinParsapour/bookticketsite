@@ -27,8 +27,8 @@ public class CardValidationServlet extends HttpServlet {
         if(creditCard == null){
             int cvv2 = Integer.parseInt(req.getParameter("customerCardCVV2"));
             Date expirationDate = new SimpleDateFormat("yyyy-mm-dd").parse(req.getParameter("customerCardExpirationDate"));
-            int secondPassword = Integer.parseInt(req.getParameter("customerCardPassword"));
-            CreditCard newCreditCard = new CreditCard(cardNumber,secondPassword,expirationDate,cvv2);
+            long secondPassword = Long.parseLong(req.getParameter("customerCardPassword"));
+            CreditCard newCreditCard = new CreditCard(cardNumber,cvv2,expirationDate,secondPassword);
             newCreditCard = ApplicationContext.getCreditCardService().createOrUpdate(newCreditCard);
             newCreditCard.setCustomer(SecurityUser.getCustomer());
             newCreditCard = ApplicationContext.getCreditCardService().createOrUpdate(newCreditCard);

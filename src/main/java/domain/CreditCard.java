@@ -42,7 +42,7 @@ public class CreditCard extends BaseEntity<Long> {
     private Date expirationDate;
 
     @JoinColumn(name = SECOND_PASSWORD)
-    private int secondPassword;
+    private long secondPassword;
 
     @JoinColumn(name = BALANCE)
     private double balance;
@@ -51,7 +51,7 @@ public class CreditCard extends BaseEntity<Long> {
     @JoinColumn(name = CUSTOMER)
     private Customer customer;
 
-    public CreditCard(long cardNumber, int cVV2, Date expirationDate, int secondPassword) {
+    public CreditCard(long cardNumber, int cVV2, Date expirationDate, long secondPassword) {
         this.cardNumber = cardNumber;
         this.cVV2 = cVV2;
         this.expirationDate = expirationDate;
