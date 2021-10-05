@@ -38,6 +38,8 @@ public class CustomerFormValidation extends HttpServlet {
             Date birthDate = new SimpleDateFormat("yyyy-mm-dd").parse(req.getParameter("customerBirthday"));
             Customer customer = new Customer(firstName,lastName,email,phoneNumber,nationalCode,birthDate,userName,password);
             ApplicationContext.getCustomerService().createOrUpdate(customer);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/jsp/customerjsp/CustomerMainMenu.jsp");
+            requestDispatcher.forward(req,resp);
         }
     }
 }

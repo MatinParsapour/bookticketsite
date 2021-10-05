@@ -3,10 +3,12 @@ package servlets.customerservlets;
 import domain.Customer;
 import util.ApplicationContext;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -21,7 +23,10 @@ public class CustomerEnterValidation extends HttpServlet {
         if(customer == null){
             out.println("The username or password is incorrect");
         }else{
-            out.println("Welcome : " + customer.getFirstName() + " " + customer.getLastName());
+            HttpSession session = req.getSession(false);
+            session.setAttribute("customerLogInUserName",username);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/jsp/customerjsp/CustomerMainMenu.jsp");
+            requestDispatcher.forward(req,resp);
         }
     }
 }
