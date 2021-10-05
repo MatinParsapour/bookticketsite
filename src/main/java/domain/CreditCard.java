@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = CreditCard.TABLE_NAME)
@@ -38,7 +39,7 @@ public class CreditCard extends BaseEntity<Long> {
     private int cVV2;
 
     @JoinColumn(name = EXPIRATION_DATE)
-    private LocalDate expirationDate;
+    private Date expirationDate;
 
     @JoinColumn(name = SECOND_PASSWORD)
     private int secondPassword;
@@ -50,11 +51,11 @@ public class CreditCard extends BaseEntity<Long> {
     @JoinColumn(name = CUSTOMER)
     private Customer customer;
 
-    public CreditCard(long cardNumber, int cVV2, LocalDate expirationDate, int secondPassword, double balance) {
+    public CreditCard(long cardNumber, int cVV2, Date expirationDate, int secondPassword) {
         this.cardNumber = cardNumber;
         this.cVV2 = cVV2;
         this.expirationDate = expirationDate;
         this.secondPassword = secondPassword;
-        this.balance = balance;
+        balance = 0.0;
     }
 }
