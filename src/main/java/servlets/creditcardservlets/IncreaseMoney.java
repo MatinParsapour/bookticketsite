@@ -20,5 +20,7 @@ public class IncreaseMoney extends HttpServlet {
         double newBalance = currentBalance + amount;
         creditCard.setBalance(newBalance);
         ApplicationContext.getCreditCardService().createOrUpdate(creditCard);
+        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/cards/CustomerCreditCards.jsp");
+        rd.forward(req,resp);
     }
 }
