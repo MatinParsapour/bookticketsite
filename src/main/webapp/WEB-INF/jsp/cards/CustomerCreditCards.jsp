@@ -26,7 +26,6 @@
     out.println("<p>" + creditCard.getBalance() + "</p>");
     out.println("<p>" + creditCard.getExpirationDate() + "</p>");
     out.println("<p>" + creditCard.getSecondPassword() + "</p>");
-    out.println("<p>" + creditCard.getSecondPassword() + "</p>");
     out.println("<form action=\"increaseMoney\">\n" +
             "    <input type=\"hidden\" name=\"creditCard\" value=\"" + creditCard.getId() + "\">\n" +
             "    <input id=\"amount\" type=\"text\" name=\"amount\" onchange=\"this.value = parseInt(this.value);\" placeholder=\"Amount\">" +
