@@ -65,4 +65,17 @@ public class CreditCardRepositoryImpl extends BaseRepositoryImpl<CreditCard, Lon
             return null;
         }
     }
+
+    @Override
+    public CreditCard findDouplicateCardByCardNumber(long cardNumber) {
+        try{
+            return entityManager.createQuery("SELECT c " +
+                    "FROM CreditCard c " +
+                    "WHERE c.cardNumber = :cardNumber ",CreditCard.class).
+                    setParameter("cardNumber",cardNumber).
+                    getSingleResult();
+        }catch (NoResultException exception){
+            return null;
+        }
+    }
 }

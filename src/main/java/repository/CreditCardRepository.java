@@ -12,4 +12,6 @@ public interface CreditCardRepository extends BaseRepository<CreditCard, Long> {
     CreditCard findCustomerCreditCardByCardNumber(long cardNumber);
 
     CreditCard findCustomerCreditCardById(long id);
+
+    CreditCard findDouplicateCardByCardNumber(long cardNumber);
 }

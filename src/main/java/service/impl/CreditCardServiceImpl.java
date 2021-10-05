@@ -18,6 +18,11 @@ public class CreditCardServiceImpl extends BaseServiceImpl<CreditCard, Long, Cre
         super(repository);
     }
 
+    public CreditCard findDoplicateCardByCardNumber(long cardNumber){
+        return repository.findDouplicateCardByCardNumber(cardNumber);
+    }
 
-
+    public List<CreditCard> findCustomerCard() {
+        return repository.findCustomerCreditCards();
+    }
 }
