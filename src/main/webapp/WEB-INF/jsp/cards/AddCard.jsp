@@ -27,7 +27,7 @@
         <br>
         <div style="margin-left: 500px;">
             <label for="customerCardPassword">Second password : </label>
-            <input id="customerCardPassword" type="text" name="customerCardPassword" onchange="this.value = parseInt(this.value);" placeholder="Second password" required>
+            <input id="customerCardPassword" type="password" name="customerCardPassword" onchange="this.value = parseInt(this.value);" placeholder="Second password" required>
         </div>
         <br>
         <br>
