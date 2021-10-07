@@ -143,7 +143,8 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket, Long> imple
             return entityManager.createQuery("SELECT t " +
                     "FROM Ticket t " +
                     "WHERE t.departureDate <= :oneHourLater " +
-                    "AND t.departureDate >= :now ", Ticket.class).
+                    "AND t.departureDate >= :now " +
+                    "AND t.isPriceChanged = false ", Ticket.class).
                     setParameter("oneHourLater", LocalDateTime.now().plusHours(1)).
                     setParameter("now",LocalDateTime.now()).
                     getResultList();

@@ -19,6 +19,7 @@ public class TicketsServlet extends HttpServlet {
             for(Ticket ticket : oneHourLastTickets){
                 double newPrice = ticket.getAmount() / 2;
                 ticket.setAmount(newPrice);
+                ticket.setIsPriceChanged(true);
                 ApplicationContext.getTicketServiceImpl().createOrUpdate(ticket);
             }
         }

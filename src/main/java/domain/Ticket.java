@@ -53,6 +53,8 @@ public class Ticket extends BaseEntity<Long> {
     @JoinColumn(name = COMPANY)
     private Company company;
 
+    private Boolean isPriceChanged;
+
     public Ticket(String origin, String destination, LocalDateTime departureDate, LocalDateTime returnDate, int numberOfPassengers, Double amount) {
         this.origin = origin;
         this.destination = destination;
@@ -60,5 +62,6 @@ public class Ticket extends BaseEntity<Long> {
         this.returnDate = returnDate;
         this.numberOfPassengers = numberOfPassengers;
         this.amount = amount;
+        isPriceChanged = false;
     }
 }
