@@ -2,6 +2,7 @@ package servlets.ceoservlets;
 
 import domain.CEO;
 import util.ApplicationContext;
+import util.SecurityUser;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,7 +24,9 @@ public class CEOCodeValidation extends HttpServlet {
         long ceoCodeLong = Long.parseLong((String) session.getAttribute("ceoCode"));
         CEO ceo = ApplicationContext.getCEOService().checkCEO(ceoCodeLong);
         if(ceo != null){
-            out.println("Welcome : " + ceo.getFirstName() + " " + ceo.getLastName());
+            SecurityUser.setCeo(ceo);
+            RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/ceojsp/MainMenu.jsp");
+            rd.forward(req,resp);
         }else{
             out.println("The code is wrong");
         }
