@@ -20,4 +20,7 @@ public class TicketServiceImpl extends BaseServiceImpl<Ticket, Long, TicketRepos
     }
 
 
+    public List<Ticket> getTickets(String origin, String destination, String field, String order) {
+        return repository.findTicketsByOrder(field,order,origin,destination);
+    }
 }
