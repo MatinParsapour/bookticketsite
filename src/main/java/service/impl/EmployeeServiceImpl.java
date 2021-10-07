@@ -28,4 +28,24 @@ public class EmployeeServiceImpl extends BaseServiceImpl<Employee, Long, Employe
     public Employee getEmployeeByEmployeeCode(long employeeCode) {
         return repository.findEmployeeByEmployeeCode(employeeCode);
     }
+
+    public List<Employee> requests(){
+        return repository.findRequestsForCEO();
+    }
+
+    public long generateEmployeeCode(){
+        Random random = new Random();
+        String employeeCodeString = "";
+        while(true){
+            employeeCodeString = "";
+            for(int i = 0; i<10; i++){
+                employeeCodeString += random.nextInt(9);
+            }
+            long employeeCode = Long.parseLong(employeeCodeString);
+            Employee employee = repository.findEmployeeByEmployeeCode(employeeCode);
+            if(employee == null){
+                return employeeCode;
+            }
+        }
+    }
 }
