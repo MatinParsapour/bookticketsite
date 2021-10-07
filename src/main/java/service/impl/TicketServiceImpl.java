@@ -9,6 +9,7 @@ import service.TicketService;
 import util.ApplicationContext;
 import util.SecurityUser;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -22,5 +23,9 @@ public class TicketServiceImpl extends BaseServiceImpl<Ticket, Long, TicketRepos
 
     public List<Ticket> getTickets(String origin, String destination, String field, String order) {
         return repository.findTicketsByOrder(field,order,origin,destination);
+    }
+
+    public List<Ticket> getFinalMomentsTickets(){
+        return repository.oneHourRemainTickets();
     }
 }
