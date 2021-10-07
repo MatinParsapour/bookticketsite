@@ -34,10 +34,10 @@ public class Ticket extends BaseEntity<Long> {
     private String destination;
 
     @JoinColumn(name = DEPARTUREDATE)
-    private Date departureDate;
+    private LocalDateTime departureDate;
 
     @JoinColumn(name = RETURNDATE)
-    private Date returnDate;
+    private LocalDateTime returnDate;
 
     @JoinColumn(name = NUMBEROFPASSENGERS)
     private int numberOfPassengers;
@@ -53,7 +53,7 @@ public class Ticket extends BaseEntity<Long> {
     @JoinColumn(name = COMPANY)
     private Company company;
 
-    public Ticket(String origin, String destination, Date departureDate, Date returnDate, int numberOfPassengers, Double amount) {
+    public Ticket(String origin, String destination, LocalDateTime departureDate, LocalDateTime returnDate, int numberOfPassengers, Double amount) {
         this.origin = origin;
         this.destination = destination;
         this.departureDate = departureDate;

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class SetTicket extends HttpServlet {
@@ -23,8 +24,8 @@ public class SetTicket extends HttpServlet {
         Company company = SecurityUser.getEmployee().getCompany();
         String destination = req.getParameter("destination");
         int numberOfPassengers =Integer.parseInt(req.getParameter("passengers"));
-        Date departureDate = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm").parse(req.getParameter("departureDate"));
-        Date returnDate = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm").parse(req.getParameter("returnDate"));
+        LocalDateTime departureDate = LocalDateTime.parse(req.getParameter("departureDate"));
+        LocalDateTime returnDate = LocalDateTime.parse(req.getParameter("returnDate"));
         double price = Double.parseDouble(req.getParameter("price"));
         Ticket ticket = new Ticket(origin,destination,departureDate,returnDate,numberOfPassengers,price);
         ticket.setCompany(company);
