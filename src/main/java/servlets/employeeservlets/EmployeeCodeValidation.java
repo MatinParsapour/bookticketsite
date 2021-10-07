@@ -2,7 +2,9 @@ package servlets.employeeservlets;
 
 import domain.Employee;
 import util.ApplicationContext;
+import util.SecurityUser;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +22,9 @@ public class EmployeeCodeValidation extends HttpServlet {
         if(employee == null){
             out.println("The code is wrong");
         }else{
-            out.println("Welcome : " + employee.getFirstName() + " " + employee.getLastName());
+            SecurityUser.setEmployee(employee);
+            RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/employee/EmployeeMainMenu.jsp");
+            rd.forward(req,resp);
         }
     }
 }
