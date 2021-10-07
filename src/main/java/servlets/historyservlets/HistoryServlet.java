@@ -10,7 +10,7 @@ import java.io.IOException;
 public class HistoryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/customerjsp/CustomerHistory.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/history/CustomerHistory.jsp");
         rd.forward(req,resp);
     }
 }
