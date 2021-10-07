@@ -16,12 +16,290 @@
   </servlet>
 
   <servlet>
-    <servlet-name>CustomerEnterServlet</servlet-name>
+    <servlet-name>customerEnterServlet</servlet-name>
     <servlet-class>servlets.customerservlets.CustomerEnterServlet</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>customerSignUp</servlet-name>
+    <servlet-class>servlets.customerservlets.CustomerSignUp</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>customerFormValidation</servlet-name>
+    <servlet-class>servlets.customerservlets.CustomerFormValidation</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>customerLogIn</servlet-name>
+    <servlet-class>servlets.customerservlets.CustomerLogIn</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>customerEnterValidation</servlet-name>
+    <servlet-class>servlets.customerservlets.CustomerEnterValidation</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>historyServlet</servlet-name>
+    <servlet-class>servlets.historyservlets.HistoryServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>cardsServlet</servlet-name>
+    <servlet-class>servlets.creditcardservlets.CreditCardsServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>addCard</servlet-name>
+    <servlet-class>servlets.creditcardservlets.AddCardServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>cardValidation</servlet-name>
+    <servlet-class>servlets.creditcardservlets.CardValidationServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>getMoneyFromCustomer</servlet-name>
+    <servlet-class>servlets.creditcardservlets.IncreaseMoney</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>changePassword</servlet-name>
+    <servlet-class>servlets.creditcardservlets.ChangePassword</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>deleteCard</servlet-name>
+    <servlet-class>servlets.creditcardservlets.DeleteCard</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>Tickets</servlet-name>
+    <servlet-class>servlets.ticketservlets.TicketsServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>availableTickets</servlet-name>
+    <servlet-class>servlets.ticketservlets.AvailableTickets</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>bookTicket</servlet-name>
+    <servlet-class>servlets.ticketservlets.BookTicket</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>getCardInformation</servlet-name>
+    <servlet-class>servlets.ticketservlets.GetCardInformationToBuyTicket</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>buyTicket</servlet-name>
+    <servlet-class>servlets.ticketservlets.BuyTicket</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>employeeEnter</servlet-name>
+    <servlet-class>servlets.employeeservlets.EmployeeEnterServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>employeeCode</servlet-name>
+    <servlet-class>servlets.employeeservlets.GetEmployeeCode</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>volunteerApplication</servlet-name>
+    <servlet-class>servlets.employeeservlets.VolunteerApplication</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>volunteerRequest</servlet-name>
+    <servlet-class>servlets.employeeservlets.VolunteerRequestServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>volunteerFormValidation</servlet-name>
+    <servlet-class>servlets.employeeservlets.VolunteerFormValidation</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>volunteerSituation</servlet-name>
+    <servlet-class>servlets.employeeservlets.VolunteerSituation</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>employeeCodeValidation</servlet-name>
+    <servlet-class>servlets.employeeservlets.EmployeeCodeValidation</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>addTicket</servlet-name>
+    <servlet-class>servlets.ticketservlets.AddTicket</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>setTicket</servlet-name>
+    <servlet-class>servlets.ticketservlets.SetTicket</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>requests</servlet-name>
+    <servlet-class>servlets.ceoservlets.Requests</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>acceptVolunteer</servlet-name>
+    <servlet-class>servlets.ceoservlets.AcceptVolunteer</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>rejectVolunteer</servlet-name>
+    <servlet-class>servlets.ceoservlets.RejectVolunteer</servlet-class>
+  </servlet>
+
   <servlet-mapping>
-    <servlet-name>CustomerEnterServlet</servlet-name>
+    <servlet-name>rejectVolunteer</servlet-name>
+    <url-pattern>/reject</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>acceptVolunteer</servlet-name>
+    <url-pattern>/accept</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>requests</servlet-name>
+    <url-pattern>/requests</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>setTicket</servlet-name>
+    <url-pattern>/setTicket</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>addTicket</servlet-name>
+    <url-pattern>/addTicket</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>employeeCodeValidation</servlet-name>
+    <url-pattern>/employeeValidation</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>volunteerSituation</servlet-name>
+    <url-pattern>/volunteerNationalCodeValidation</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>volunteerFormValidation</servlet-name>
+    <url-pattern>/volunteerFormValidation</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>volunteerRequest</servlet-name>
+    <url-pattern>/volunteerRequest</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>volunteerApplication</servlet-name>
+    <url-pattern>/application</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>employeeCode</servlet-name>
+    <url-pattern>/employeeCode</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>employeeEnter</servlet-name>
+    <url-pattern>/employeeEnter</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buyTicket</servlet-name>
+    <url-pattern>/cardValidationForTicket</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>getCardInformation</servlet-name>
+    <url-pattern>/buyTicket</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>bookTicket</servlet-name>
+    <url-pattern>/bookTicket</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>availableTickets</servlet-name>
+    <url-pattern>/availableTickets</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Tickets</servlet-name>
+    <url-pattern>/allTickets</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deleteCard</servlet-name>
+    <url-pattern>/deleteCard</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>changePassword</servlet-name>
+    <url-pattern>/changePassword</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>getMoneyFromCustomer</servlet-name>
+    <url-pattern>/increaseMoney</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>cardValidation</servlet-name>
+    <url-pattern>/cardValidation</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>addCard</servlet-name>
+    <url-pattern>/addCard</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>cardsServlet</servlet-name>
+    <url-pattern>/customerCards</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>historyServlet</servlet-name>
+    <url-pattern>/history</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>customerEnterValidation</servlet-name>
+    <url-pattern>/customerEnterValidation</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>customerLogIn</servlet-name>
+    <url-pattern>/customerLogIn</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>customerFormValidation</servlet-name>
+    <url-pattern>/customerFormValidation</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>customerSignUp</servlet-name>
+    <url-pattern>/customerSignUp</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>customerEnterServlet</servlet-name>
     <url-pattern>/customerEnter</url-pattern>
   </servlet-mapping>
 
