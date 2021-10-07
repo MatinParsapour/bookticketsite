@@ -8,4 +8,5 @@ import java.util.List;
 public interface EmployeeService extends BaseService<Employee, Long> {
 
 
+    Employee getEmployeeByEmployeeCode(long employeeCode);
 }

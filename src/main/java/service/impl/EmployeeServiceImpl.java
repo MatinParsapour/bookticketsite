@@ -20,6 +20,12 @@ public class EmployeeServiceImpl extends BaseServiceImpl<Employee, Long, Employe
         super(repository);
     }
 
+    public Employee getEmployeeByNationalCode(long nationalCode){
+        return repository.findEmployeeByNationalCode(nationalCode);
+    }
 
-
+    @Override
+    public Employee getEmployeeByEmployeeCode(long employeeCode) {
+        return repository.findEmployeeByEmployeeCode(employeeCode);
+    }
 }
