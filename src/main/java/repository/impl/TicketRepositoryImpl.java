@@ -6,6 +6,7 @@ import repository.TicketRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -132,6 +133,21 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket, Long> imple
                     setParameter("destination",destination).
                     getSingleResult();
         }catch (NoResultException exception){
+            return null;
+        }
+    }
+
+    @Override
+    public List<Ticket> oneHourRemainTickets() {
+        try {
+            return entityManager.createQuery("SELECT t " +
+                    "FROM Ticket t " +
+                    "WHERE t.departureDate <= :oneHourLater " +
+                    "AND t.departureDate >= :now ", Ticket.class).
+                    setParameter("oneHourLater", LocalDateTime.now().plusHours(1)).
+                    setParameter("now",LocalDateTime.now()).
+                    getResultList();
+        } catch (NoResultException exception) {
             return null;
         }
     }

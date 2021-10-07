@@ -11,4 +11,6 @@ public interface TicketRepository extends BaseRepository<Ticket, Long> {
     List<Ticket> findTicketsByOrder(String field, String position,String origin,String destination);
 
     Ticket findTicketByIdForCustomer(long id,String origin, String destination);
+
+    List<Ticket> oneHourRemainTickets();
 }
