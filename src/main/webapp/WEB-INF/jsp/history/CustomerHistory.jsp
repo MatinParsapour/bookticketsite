@@ -17,17 +17,52 @@
 if(histories.size() == 0){
     out.println("You don't have any ticket yet");
 }else{
+    out.println("<table border=\"1px\" class=\"center\">\n" +
+            "    <thead>\n" +
+            "        <th>Origin</th>\n" +
+            "        <th>Destination</th>\n" +
+            "        <th>Departure date</th>\n" +
+            "        <th>Return date</th>\n" +
+            "        <th>Number of ticket</th>\n" +
+            "        <th>Price</th>\n" +
+            "        <th>Company name</th>\n" +
+            "        <th>Buy</th>\n" +
+            "        <th>Delete</th>\n" +
+            "    </thead>\n" +
+            "    <tbody>");
     for(History history : histories){
-        out.println(history.getTickets().getCompany().getCompanyName());
-        out.println(history.getTickets().getAmount());
-        out.println(history.getTickets().getDepartureDate());
-        out.println(history.getTickets().getReturnDate());
-        out.println(history.getTickets().getOrigin());
-        out.println(history.getTickets().getDestination());
-        out.println(history.getNumberOfTicket());
-        out.println(history.getIsBooked());
-        out.println(history.getIsBought());
+        out.println("        <tr>\n" +
+                "            <td style=\"text-align: center;\">" + history.getTickets().getOrigin() + " </td>\n" +
+                "            <td style=\"text-align: center;\">" + history.getTickets().getDestination() + " </td>\n" +
+                "            <td style=\"text-align: center;\">" + history.getTickets().getDepartureDate() +"  </td>\n" +
+                "            <td style=\"text-align: center;\">" + history.getTickets().getReturnDate() +" </td>\n" +
+                "            <td style=\"text-align: center;\">" + history.getNumberOfTicket() +"  </td>\n" +
+                "            <td style=\"text-align: center;\">" + history.getTickets().getAmount() +"  </td>\n" +
+                "            <td style=\"text-align: center;\">" + history.getTickets().getCompany().getCompanyName() +"  </td>\n");
+        if(history.getIsBought().equals(true)){
+            out.println("            <td style=\"text-align: center;\"> - </td>\n" +
+                    "            <td style=\"text-align: center;\"> - </td>\n");
+        }else{
+            out.println("            <td style=\"text-align: center;\">\n" +
+                    "                <form action=\"buyTicket\">\n" +
+                    "                    <input type=\"hidden\" name=\"ticket\" value=\"" + history.getTickets().getId() + "\">\n" +
+                    "                    <input id=\"amount\" type=\"number\" name=\"numberOfPassengers\" placeholder=\"Number of ticket you want\">\n" +
+                    "                    <br>\n" +
+                    "                    <br>\n" +
+                    "                    <input type=\"submit\" name=\"submit\" value=\"Buy ticket\">\n" +
+                    "                </form>\n" +
+                    "            </td>\n" +
+                    "            <td style=\"text-align: center;\">\n" +
+                    "                <form action=\"deleteTicket\">\n" +
+                    "                    <input type=\"hidden\" name=\"ticket\" value=\"" + history.getTickets().getId() + "\">\n" +
+                    "                    <input type=\"submit\" name=\"submit\" value=\"Delete\">\n" +
+                    "                </form>\n" +
+                    "            </td>" +
+                    " </tr>");
+        }
     }
+    out.println("</tbody>");
+    out.println("</table>");
 }
 %>
 </body>
