@@ -25,4 +25,8 @@ public class CreditCardServiceImpl extends BaseServiceImpl<CreditCard, Long, Cre
     public List<CreditCard> findCustomerCard() {
         return repository.findCustomerCreditCards();
     }
+
+    public CreditCard findCustomerCardForBuyTicket(long customerCardNumber) {
+        return repository.findCustomerCreditCardByCardNumber(customerCardNumber);
+    }
 }
