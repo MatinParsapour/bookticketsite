@@ -16,6 +16,8 @@ public class ApplicationContext {
     private static final TicketRepository ticketRepository;
     private static final UserRepository userRepository;
     private static final HistoryRepository historyRepository;
+    private static final AdminRepository adminRepository;
+    private static final CouponRepository couponRepository;
 
     private static final CEOServiceImpl cEOService;
     private static final CompanyServiceImpl companyServiceImpl;
@@ -25,7 +27,8 @@ public class ApplicationContext {
     private static final TicketServiceImpl ticketServiceImpl;
     private static final UserServiceImpl userService;
     private static final HistoryServiceImpl historyServiceImpl;
-
+    private static final AdminServiceImpl adminServiceImpl;
+    private static final CouponServiceImpl couponServiceImpl;
 
     static {
         EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
@@ -37,6 +40,8 @@ public class ApplicationContext {
         ticketRepository = new TicketRepositoryImpl(entityManager);
         userRepository = new UserRepositoryImpl(entityManager);
         historyRepository = new HistoryRepositoryImpl(entityManager);
+        adminRepository = new AdminRepositoryImpl(entityManager);
+        couponRepository = new CouponRepositoryImpl(entityManager);
 
         cEOService = new CEOServiceImpl(cEORepository);
         companyServiceImpl = new CompanyServiceImpl(companyRepository);
@@ -46,7 +51,8 @@ public class ApplicationContext {
         ticketServiceImpl = new TicketServiceImpl(ticketRepository);
         userService = new UserServiceImpl(userRepository);
         historyServiceImpl = new HistoryServiceImpl(historyRepository);
-
+        adminServiceImpl = new AdminServiceImpl(adminRepository);
+        couponServiceImpl = new CouponServiceImpl(couponRepository);
 
     }
 
@@ -58,5 +64,6 @@ public class ApplicationContext {
     public static TicketServiceImpl getTicketServiceImpl(){return ticketServiceImpl;}
     public static EmployeeServiceImpl getEmployeeService(){return employeeService;}
     public static HistoryServiceImpl getHistoryServiceImpl(){return historyServiceImpl;}
-
+    public static AdminServiceImpl getAdminServiceImpl(){return adminServiceImpl;}
+    public static CouponServiceImpl getCouponServiceImpl(){return couponServiceImpl;}
 }
