@@ -9,4 +9,9 @@ public class AdminServiceImpl extends BaseServiceImpl<Admin,Long, AdminRepositor
     public AdminServiceImpl(AdminRepository repository) {
         super(repository);
     }
+
+    @Override
+    public Admin getAdmin(String username, String password) {
+        return repository.findAdminByUserNameAndPassword(username,password);
+    }
 }
