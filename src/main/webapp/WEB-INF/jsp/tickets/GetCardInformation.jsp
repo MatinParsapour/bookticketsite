@@ -44,7 +44,7 @@ out.println("<h1><b>" + numberOfTickets + " × " + price + " = " + result + "</b
         <br>
         <br>
         <div style="margin-left: 500px;">
-            <label for="customerCoupon">Second password : </label>
+            <label for="customerCoupon">Coupon : </label>
             <input id="customerCoupon" type="text" name="customerCoupon" placeholder="Do you have coupon">
         </div>
         <div align = "center" style="margin-top: .5cm;">
