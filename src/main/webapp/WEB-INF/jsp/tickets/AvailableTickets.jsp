@@ -12,6 +12,7 @@
     <title>available tickets</title>
 </head>
 <body>
+<a href="customerMainMenu" style="float: right;">Back to menu</a>
 <% List<Ticket> ticketList = (List) session.getAttribute("ticketList");
 if(ticketList.size() == 0){
     out.println("There's no ticket for this root");

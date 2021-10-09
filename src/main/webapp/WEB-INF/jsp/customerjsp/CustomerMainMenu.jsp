@@ -11,9 +11,10 @@
     <title>Customer main menu</title>
 </head>
 <body>
-<div align = "center">
+<a href="mainMenu" style="float: right;">Back to menu</a>
+<div>
     <form action="history">
-        <input type="submit" name="history" value="History" style="width: 200px;height: 30px;">
+        <input type="submit" name="history" value="History" style="width: 200px;height: 30px;margin-left: 42.5%;">
     </form>
 </div>
 <div align = "center">

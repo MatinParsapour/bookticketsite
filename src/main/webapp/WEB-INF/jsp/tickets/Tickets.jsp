@@ -13,6 +13,7 @@
     <title>Tickets</title>
 </head>
 <body>
+<a href="customerMainMenu" style="float: right;">Back to menu</a>
 <div style="width: fit-content;">
     <form action="availableTickets">
         <div style="width: 300px;float: left;margin-left: 150px;">

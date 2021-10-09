@@ -11,6 +11,7 @@
     <title>Main menu</title>
 </head>
 <body>
+<a href="mainMenu" style="float: right;">Back to menu</a>
 <form action="addCoupon">
     <div style="text-align: center">
         <input type="submit" value="Add coupon" style="width: 200px; height: 50px">

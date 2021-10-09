@@ -11,6 +11,7 @@
     <title>Add ticket</title>
 </head>
 <body>
+<a href="employeeMainMenu" style="float: right;">Back to menu</a>
 <div>
     <form action="setTicket">
         <div style="text-align: center">
@@ -31,13 +32,13 @@
         </div>
         <br>
         <br>
-        <div style="margin-left: 505">
+        <div style="margin-left: 505px">
             <label for="departureDate">Departure date : </label>
             <input type="datetime-local" name="departureDate" id="departureDate" placeholder="Departure date">
         </div>
         <br>
         <br>
-        <div style="margin-left: 522">
+        <div style="margin-left: 522px">
             <label for="returnDate">Return date : </label>
             <input type="datetime-local" name="returnDate" id="returnDate" placeholder="Return date">
         </div>

@@ -13,6 +13,7 @@
     <title>Requests</title>
 </head>
 <body>
+<a href="cEOMainMenu" style="float: right;">Back to menu</a>
 <% List<Employee> employeeList = ApplicationContext.getEmployeeService().requests();
 if(employeeList.size() == 0){
     out.println("There's no request for you");

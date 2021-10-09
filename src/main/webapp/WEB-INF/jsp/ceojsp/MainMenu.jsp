@@ -11,6 +11,7 @@
     <title>Main menu</title>
 </head>
 <body>
+<a href="mainMenu" style="float: right;">Back to menu</a>
 <form action="requests">
     <div style="text-align: center">
         <input type="submit" value="Requests" style="width: 200px; height: 50px">

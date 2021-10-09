@@ -14,6 +14,7 @@
     <title>Add coupon</title>
 </head>
 <body>
+<a href="adminMainMenu" style="float: right;">Back to menu</a>
 <p align = "center" style="font-size: 30px;"><b><i>Add coupon</i></b></p>
 <form action="setCoupon">
     <Table border="1px" align = "center" style="width: 100%;">

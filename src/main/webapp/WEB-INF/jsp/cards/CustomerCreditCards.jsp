@@ -13,6 +13,7 @@
     <title>Customer credit cards</title>
 </head>
 <body>
+<a href="customerMainMenu" style="float: right;">Back to menu</a>
 <div style="width:fit-content;">
     <div style="width:300px; float:left; margin-left: 100px;">
         <form action="addCard">

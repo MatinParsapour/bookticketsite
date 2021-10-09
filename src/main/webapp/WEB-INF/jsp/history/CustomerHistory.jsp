@@ -13,6 +13,7 @@
     <title>History</title>
 </head>
 <body>
+<a href="customerMainMenu" style="float: right;">Back to menu</a>
 <% List<History> histories = ApplicationContext.getHistoryServiceImpl().findCustomerHistory();
 if(histories.size() == 0){
     out.println("You don't have any ticket yet");
@@ -55,6 +56,7 @@ if(histories.size() == 0){
                     "            <td style=\"text-align: center;\">\n" +
                     "                <form action=\"deleteTicket\">\n" +
                     "                    <input type=\"hidden\" name=\"ticket\" value=\"" + history.getTickets().getId() + "\">\n" +
+                    "                    <input type=\"hidden\" name=\"history\" value=\"" + history.getId() + "\">\n" +
                     "                    <input type=\"submit\" name=\"submit\" value=\"Delete\">\n" +
                     "                </form>\n" +
                     "            </td>" +

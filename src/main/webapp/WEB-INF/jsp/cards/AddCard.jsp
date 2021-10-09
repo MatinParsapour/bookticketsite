@@ -11,6 +11,7 @@
     <title>Add card</title>
 </head>
 <body>
+<a href="customerMainMenu" style="float: right;">Back to menu</a>
 <div>
     <form action="cardValidation">
         <div align = "center">
