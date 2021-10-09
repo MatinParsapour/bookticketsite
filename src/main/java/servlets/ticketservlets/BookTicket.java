@@ -22,11 +22,17 @@ public class BookTicket extends HttpServlet {
         Ticket ticket = ApplicationContext.getTicketServiceImpl().findById(ticketId);
         int newNumberOfPassenger = ticket.getNumberOfPassengers() - numberOfTicket;
         ticket.setNumberOfPassengers(newNumberOfPassenger);
-        ApplicationContext.getTicketServiceImpl().createOrUpdate(ticket);
         Customer customer = SecurityUser.getCustomer();
         customer.getTickets().add(ticket);
+        History history = ApplicationContext.getHistoryServiceImpl().findCustomerTicketHistory(ticketId);
+        if(history == null){
+            history = new History(customer,ticket,numberOfTicket,true,false);
+        }else{
+            int newNumberOfTickets = history.getNumberOfTicket() + numberOfTicket;
+            history.setNumberOfTicket(newNumberOfTickets);
+        }
         ApplicationContext.getCustomerService().createOrUpdate(customer);
-        History history = new History(customer,ticket,numberOfTicket,true,false);
+        ApplicationContext.getTicketServiceImpl().createOrUpdate(ticket);
         ApplicationContext.getHistoryServiceImpl().createOrUpdate(history);
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/tickets/AvailableTickets.jsp");
         rd.forward(req,resp);
