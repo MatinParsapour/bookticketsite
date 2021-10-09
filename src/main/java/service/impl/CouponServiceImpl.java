@@ -9,4 +9,9 @@ public class CouponServiceImpl extends BaseServiceImpl<Coupon,Long, CouponReposi
     public CouponServiceImpl(CouponRepository repository) {
         super(repository);
     }
+
+    @Override
+    public Coupon getCoupon(String couponCode) {
+        return repository.findCouponByCouponCode(couponCode);
+    }
 }

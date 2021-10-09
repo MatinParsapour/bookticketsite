@@ -1,9 +1,6 @@
 package servlets.ticketservlets;
 
-import domain.CreditCard;
-import domain.Customer;
-import domain.History;
-import domain.Ticket;
+import domain.*;
 import lombok.SneakyThrows;
 import util.ApplicationContext;
 import util.SecurityUser;
@@ -30,33 +27,54 @@ public class BuyTicket extends HttpServlet {
         if(creditCard == null){
             out.println("The card number is incorrect");
         }else{
-            String expirationDate = req.getParameter("customerCardExpirationDate") + " 00:00:00.0";
-            int cvv2 = Integer.parseInt(req.getParameter("customerCardCVV2"));
-            long secondPassword = Long.parseLong(req.getParameter("customerCardPassword"));
-            double result = (Double) session.getAttribute("result");
-            if(creditCard.getCVV2() == cvv2 && String.valueOf(creditCard.getExpirationDate()).equals(expirationDate) && creditCard.getSecondPassword() == secondPassword){
-                if(creditCard.getBalance() >= result){
-                    Customer customer = SecurityUser.getCustomer();
-                    double newBalance = creditCard.getBalance() - result;
-                    creditCard.setBalance(newBalance);
-                    Ticket ticket = (Ticket) session.getAttribute("ticket");
-                    int numberOfTickets = (Integer) session.getAttribute("numberOfTickets");
-                    History history = new History(customer,ticket,numberOfTickets,false,true);
-                    customer.getTickets().add(ticket);
-                    int newNumberOfPassenger = ticket.getNumberOfPassengers() - numberOfTickets;
-                    ticket.setNumberOfPassengers(newNumberOfPassenger);
-                    ApplicationContext.getTicketServiceImpl().createOrUpdate(ticket);
-                    ApplicationContext.getHistoryServiceImpl().createOrUpdate(history);
-                    ApplicationContext.getCustomerService().createOrUpdate(customer);
-                    ApplicationContext.getCreditCardService().createOrUpdate(creditCard);
-                    RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/tickets/AvailableTickets.jsp");
+            String couponCode = req.getParameter("customerCoupon");
+            if(couponCode == null){
+                String expirationDate = req.getParameter("customerCardExpirationDate") + " 00:00:00.0";
+                int cvv2 = Integer.parseInt(req.getParameter("customerCardCVV2"));
+                long secondPassword = Long.parseLong(req.getParameter("customerCardPassword"));
+                double result = (Double) session.getAttribute("result");
+                checkCardInformationAndBalance(req, resp, creditCard, out, session, expirationDate, cvv2, secondPassword, result);
+            }else{
+                Coupon coupon = ApplicationContext.getCouponServiceImpl().getCoupon(couponCode);
+                if(coupon == null){
+                    RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/tickets/GetCardInformation.jsp");
                     rd.forward(req,resp);
                 }else{
-                    out.println("You don't have enough balance");
+                    double couponPercent = coupon.getPercent();
+                    String expirationDate = req.getParameter("customerCardExpirationDate") + " 00:00:00.0";
+                    int cvv2 = Integer.parseInt(req.getParameter("customerCardCVV2"));
+                    long secondPassword = Long.parseLong(req.getParameter("customerCardPassword"));
+                    double result = (Double) session.getAttribute("result");
+                    double resultAfterCoupon = (result * (couponPercent/100));
+                    checkCardInformationAndBalance(req, resp, creditCard, out, session, expirationDate, cvv2, secondPassword, resultAfterCoupon);
                 }
-            }else{
-                out.println("The information is incorrect");
             }
+        }
+    }
+
+    private void checkCardInformationAndBalance(HttpServletRequest req, HttpServletResponse resp, CreditCard creditCard, PrintWriter out, HttpSession session, String expirationDate, int cvv2, long secondPassword, double resultAfterCoupon) throws ServletException, IOException {
+        if(creditCard.getCVV2() == cvv2 && String.valueOf(creditCard.getExpirationDate()).equals(expirationDate) && creditCard.getSecondPassword() == secondPassword){
+            if(creditCard.getBalance() >= resultAfterCoupon){
+                Customer customer = SecurityUser.getCustomer();
+                double newBalance = creditCard.getBalance() - resultAfterCoupon;
+                creditCard.setBalance(newBalance);
+                Ticket ticket = (Ticket) session.getAttribute("ticket");
+                int numberOfTickets = (Integer) session.getAttribute("numberOfTickets");
+                History history = new History(customer,ticket,numberOfTickets,false,true);
+                customer.getTickets().add(ticket);
+                int newNumberOfPassenger = ticket.getNumberOfPassengers() - numberOfTickets;
+                ticket.setNumberOfPassengers(newNumberOfPassenger);
+                ApplicationContext.getTicketServiceImpl().createOrUpdate(ticket);
+                ApplicationContext.getHistoryServiceImpl().createOrUpdate(history);
+                ApplicationContext.getCustomerService().createOrUpdate(customer);
+                ApplicationContext.getCreditCardService().createOrUpdate(creditCard);
+                RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/tickets/AvailableTickets.jsp");
+                rd.forward(req,resp);
+            }else{
+                out.println("You don't have enough balance");
+            }
+        }else{
+            out.println("The information is incorrect");
         }
     }
 }
