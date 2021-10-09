@@ -41,7 +41,9 @@ public class HistoryRepositoryImpl extends BaseRepositoryImpl<History,Long> impl
                 "JOIN h.tickets t " +
                 "JOIN h.customers c " +
                 "WHERE c.id = :customerId " +
-                "AND t.id = :ticketId ",History.class).
+                "AND t.id = :ticketId " +
+                "AND h.isBooked = true " +
+                "AND h.isBought = false ",History.class).
                 setParameter("customerId",SecurityUser.getCustomer().getId()).
                 setParameter("ticketId",id).
                 getSingleResult();
