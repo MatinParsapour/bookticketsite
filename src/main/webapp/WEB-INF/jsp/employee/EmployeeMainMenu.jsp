@@ -13,7 +13,7 @@
 <body>
 <form action="addTicket">
     <div style="text-align: center">
-        <input type="submit" value="addTicket" style="width: 200px; height: 50px">
+        <input type="submit" value="Add ticket" style="width: 200px; height: 50px">
     </div>
 </form>
 </body>
