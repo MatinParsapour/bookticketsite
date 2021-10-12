@@ -28,7 +28,7 @@ public class BuyTicket extends HttpServlet {
             out.println("The card number is incorrect");
         }else{
             String couponCode = req.getParameter("customerCoupon");
-            if(couponCode == null){
+            if(couponCode.equals("")){
                 String expirationDate = req.getParameter("customerCardExpirationDate") + " 00:00:00.0";
                 int cvv2 = Integer.parseInt(req.getParameter("customerCardCVV2"));
                 long secondPassword = Long.parseLong(req.getParameter("customerCardPassword"));
@@ -68,7 +68,7 @@ public class BuyTicket extends HttpServlet {
                 ApplicationContext.getHistoryServiceImpl().createOrUpdate(history);
                 ApplicationContext.getCustomerService().createOrUpdate(customer);
                 ApplicationContext.getCreditCardService().createOrUpdate(creditCard);
-                RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/tickets/AvailableTickets.jsp");
+                RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/customerjsp/CustomerMainMenu.jsp");
                 rd.forward(req,resp);
             }else{
                 out.println("You don't have enough balance");
