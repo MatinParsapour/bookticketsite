@@ -46,10 +46,9 @@ if(histories.size() == 0){
         }else{
             out.println("            <td style=\"text-align: center;\">\n" +
                     "                <form action=\"buyTicket\">\n" +
+                    "                    <input type=\"hidden\" name=\"historyIdToBuy\" value=\"" + history.getId() + "\">\n" +
                     "                    <input type=\"hidden\" name=\"ticket\" value=\"" + history.getTickets().getId() + "\">\n" +
-                    "                    <input id=\"amount\" type=\"number\" name=\"numberOfPassengers\" placeholder=\"Number of ticket you want\">\n" +
-                    "                    <br>\n" +
-                    "                    <br>\n" +
+                    "                    <input id=\"amount\" type=\"hidden\" name=\"numberOfPassengers\" value=\"" + history.getNumberOfTicket() + "\">\n" +
                     "                    <input type=\"submit\" name=\"submit\" value=\"Buy ticket\">\n" +
                     "                </form>\n" +
                     "            </td>\n" +
