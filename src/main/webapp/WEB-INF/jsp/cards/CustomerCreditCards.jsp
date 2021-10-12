@@ -39,7 +39,6 @@
         <th>Second password</th>
         <th>Increase money</th>
         <th>Change password</th>
-        <th>Delete card</th>
         </thead>
         <tbody>
             <% List<CreditCard> creditCardList = ApplicationContext.getCreditCardService().findCustomerCard();
