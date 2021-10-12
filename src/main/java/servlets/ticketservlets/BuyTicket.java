@@ -45,7 +45,7 @@ public class BuyTicket extends HttpServlet {
                     int cvv2 = Integer.parseInt(req.getParameter("customerCardCVV2"));
                     long secondPassword = Long.parseLong(req.getParameter("customerCardPassword"));
                     double result = (Double) session.getAttribute("result");
-                    double resultAfterCoupon = (result * (couponPercent/100));
+                    double resultAfterCoupon =result - (result * (couponPercent/100));
                     checkCardInformationAndBalance(req, resp, creditCard, out, session, expirationDate, cvv2, secondPassword, resultAfterCoupon);
                 }
             }
