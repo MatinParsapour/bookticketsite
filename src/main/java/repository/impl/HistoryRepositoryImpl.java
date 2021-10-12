@@ -36,17 +36,21 @@ public class HistoryRepositoryImpl extends BaseRepositoryImpl<History,Long> impl
 
     @Override
     public History findCustomerTicket(Long id) {
-        return entityManager.createQuery("SELECT h " +
-                "FROM History h " +
-                "JOIN h.tickets t " +
-                "JOIN h.customers c " +
-                "WHERE c.id = :customerId " +
-                "AND t.id = :ticketId " +
-                "AND h.isBooked = true " +
-                "AND h.isBought = false ",History.class).
-                setParameter("customerId",SecurityUser.getCustomer().getId()).
-                setParameter("ticketId",id).
-                getSingleResult();
+        try{
+            return entityManager.createQuery("SELECT h " +
+                    "FROM History h " +
+                    "JOIN h.tickets t " +
+                    "JOIN h.customers c " +
+                    "WHERE c.id = :customerId " +
+                    "AND t.id = :ticketId " +
+                    "AND h.isBooked = true " +
+                    "AND h.isBought = false ",History.class).
+                    setParameter("customerId",SecurityUser.getCustomer().getId()).
+                    setParameter("ticketId",id).
+                    getSingleResult();
+        }catch (NoResultException exception){
+            return null;
+        }
     }
 
     @Override
