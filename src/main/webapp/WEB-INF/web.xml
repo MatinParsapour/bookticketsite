@@ -160,6 +160,106 @@
     <servlet-class>servlets.ceoservlets.RejectVolunteer</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>addCoupon</servlet-name>
+    <servlet-class>servlets.couponservlets.AddCoupon</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>adminEnterValidation</servlet-name>
+    <servlet-class>servlets.adminservlets.AdminValidation</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>adminEnter</servlet-name>
+    <servlet-class>servlets.adminservlets.AdminEnter</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>setCoupon</servlet-name>
+    <servlet-class>servlets.couponservlets.SetCouponServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>deleteTicket</servlet-name>
+    <servlet-class>servlets.ticketservlets.DeleteTicket</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>backToMainMenu</servlet-name>
+    <servlet-class>servlets.MainMenu</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>backToCustomerMainMenu</servlet-name>
+    <servlet-class>servlets.customerservlets.CustomerMainMenu</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>backToEmployeeMainMenu</servlet-name>
+    <servlet-class>servlets.employeeservlets.EmployeeMainMenu</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>backToCEOMainMenu</servlet-name>
+    <servlet-class>servlets.ceoservlets.CEOMainMenu</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>backToAdminMainMenu</servlet-name>
+    <servlet-class>servlets.adminservlets.AdminMainMenu</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>backToAdminMainMenu</servlet-name>
+    <url-pattern>/adminMainMenu</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>backToCEOMainMenu</servlet-name>
+    <url-pattern>/cEOMainMenu</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>backToEmployeeMainMenu</servlet-name>
+    <url-pattern>/employeeMainMenu</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>backToCustomerMainMenu</servlet-name>
+    <url-pattern>/customerMainMenu</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>backToMainMenu</servlet-name>
+    <url-pattern>/mainMenu</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>deleteTicket</servlet-name>
+    <url-pattern>/deleteTicket</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>setCoupon</servlet-name>
+    <url-pattern>/setCoupon</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>adminEnter</servlet-name>
+    <url-pattern>/adminEnter</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>adminEnterValidation</servlet-name>
+    <url-pattern>/adminEnterValidation</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>addCoupon</servlet-name>
+    <url-pattern>/addCoupon</url-pattern>
+  </servlet-mapping>
+
   <servlet-mapping>
     <servlet-name>rejectVolunteer</servlet-name>
     <url-pattern>/reject</url-pattern>
