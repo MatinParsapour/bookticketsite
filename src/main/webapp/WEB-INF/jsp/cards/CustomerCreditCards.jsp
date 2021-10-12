@@ -68,12 +68,6 @@
               "                        <input type=\"submit\" name=\"submit\" value=\"New password\">\n" +
               "                   </form>\n" +
               "               </td>");
-      out.println("<td style=\"text-align: center;\">\n" +
-              "                    <form action=\"deleteCard\">\n" +
-              "                        <input type=\"hidden\" name=\"creditCard\" value=\"" + creditCard.getId() + "\">\n" +
-              "                        <input type=\"submit\" name=\"submit\" value=\"Delete\">\n" +
-              "                    </form>            \n" +
-              "                </td>");
       out.println("</tr>");
   }
   %>
