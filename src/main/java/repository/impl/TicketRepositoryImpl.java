@@ -45,8 +45,11 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket, Long> imple
                         "FROM Ticket t " +
                         "WHERE t.origin = :origin " +
                         "AND t.destination = :destination " +
+                        "AND t.departureDate > :now " +
+                        "AND t.numberOfPassengers > 0 " +
                         "ORDER BY t.amount ASC ",Ticket.class).setParameter("origin", origin).
                         setParameter("destination", destination).
+                        setParameter("now",LocalDateTime.now()).
                         getResultList();
             }
             if (field.equals("companyName")) {
@@ -55,8 +58,11 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket, Long> imple
                         "JOIN t.company c " +
                         "WHERE t.origin = :origin " +
                         "AND t.destination = :destination " +
+                        "AND t.departureDate > :now " +
+                        "AND t.numberOfPassengers > 0 " +
                         "ORDER BY c.companyName ASC ",Ticket.class).setParameter("origin", origin).
                         setParameter("destination", destination).
+                        setParameter("now",LocalDateTime.now()).
                         getResultList();
             }
             if (field.equals("origin")) {
@@ -64,8 +70,11 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket, Long> imple
                         "FROM Ticket t " +
                         "WHERE t.origin = :origin " +
                         "AND t.destination = :destination " +
+                        "AND t.departureDate > :now " +
+                        "AND t.numberOfPassengers > 0 " +
                         "ORDER BY t.origin ASC ",Ticket.class).setParameter("origin", origin).
                         setParameter("destination", destination).
+                        setParameter("now",LocalDateTime.now()).
                         getResultList();
             }
             if (field.equals("destination")) {
@@ -73,8 +82,11 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket, Long> imple
                         "FROM Ticket t " +
                         "WHERE t.origin = :origin " +
                         "AND t.destination = :destination " +
+                        "AND t.departureDate > :now " +
+                        "AND t.numberOfPassengers > 0 " +
                         "ORDER BY t.destination ASC ",Ticket.class).setParameter("origin", origin).
                         setParameter("destination", destination).
+                        setParameter("now",LocalDateTime.now()).
                         getResultList();
             }
         }
@@ -84,8 +96,11 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket, Long> imple
                         "FROM Ticket t " +
                         "WHERE t.origin = :origin " +
                         "AND t.destination = :destination " +
+                        "AND t.departureDate > :now " +
+                        "AND t.numberOfPassengers > 0 " +
                         "ORDER BY t.amount DESC ",Ticket.class).setParameter("origin", origin).
                         setParameter("destination", destination).
+                        setParameter("now",LocalDateTime.now()).
                         getResultList();
             }
             if (field.equals("companyName")) {
@@ -94,8 +109,11 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket, Long> imple
                         "JOIN t.company c " +
                         "WHERE t.origin = :origin " +
                         "AND t.destination = :destination " +
+                        "AND t.departureDate > :now " +
+                        "AND t.numberOfPassengers > 0 " +
                         "ORDER BY c.companyName DESC ",Ticket.class).setParameter("origin", origin).
                         setParameter("destination", destination).
+                        setParameter("now",LocalDateTime.now()).
                         getResultList();
             }
             if (field.equals("origin")) {
@@ -103,8 +121,11 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket, Long> imple
                         "FROM Ticket t " +
                         "WHERE t.origin = :origin " +
                         "AND t.destination = :destination " +
+                        "AND t.departureDate > :now " +
+                        "AND t.numberOfPassengers > 0 " +
                         "ORDER BY t.origin DESC ",Ticket.class).setParameter("origin", origin).
                         setParameter("destination", destination).
+                        setParameter("now",LocalDateTime.now()).
                         getResultList();
             }
             if (field.equals("destination")) {
@@ -112,8 +133,11 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket, Long> imple
                         "FROM Ticket t " +
                         "WHERE t.origin = :origin " +
                         "AND t.destination = :destination " +
+                        "AND t.departureDate > :now " +
+                        "AND t.numberOfPassengers > 0 " +
                         "ORDER BY t.destination DESC ",Ticket.class).setParameter("origin", origin).
                         setParameter("destination", destination).
+                        setParameter("now",LocalDateTime.now()).
                         getResultList();
             }
         }
