@@ -15,17 +15,27 @@ import java.io.PrintWriter;
 public class GetCardInformationToBuyTicket extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        try {
+            long HistoryIdToBuy = Long.parseLong(req.getParameter("historyIdToBuy"));
+            session.setAttribute("historyIdToBuy",HistoryIdToBuy);
+            setInformation(req, session);
+        }catch (NumberFormatException exception){
+            setInformation(req, session);
+        }
+        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/tickets/GetCardInformation.jsp");
+        rd.forward(req,resp);
+    }
+
+    private void setInformation(HttpServletRequest req, HttpSession session) {
         long ticketId = Long.parseLong(req.getParameter("ticket"));
         Ticket ticket = ApplicationContext.getTicketServiceImpl().findById(ticketId);
         int numberOfTickets = Integer.parseInt(req.getParameter("numberOfPassengers"));
         double price = ticket.getAmount();
         double result = (numberOfTickets * price);
-        HttpSession session = req.getSession(false);
         session.setAttribute("numberOfTickets",numberOfTickets);
         session.setAttribute("price",price);
         session.setAttribute("result",result);
         session.setAttribute("ticket",ticket);
-        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/tickets/GetCardInformation.jsp");
-        rd.forward(req,resp);
     }
 }

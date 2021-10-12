@@ -60,10 +60,17 @@ public class BuyTicket extends HttpServlet {
                 creditCard.setBalance(newBalance);
                 Ticket ticket = (Ticket) session.getAttribute("ticket");
                 int numberOfTickets = (Integer) session.getAttribute("numberOfTickets");
-                History history = new History(customer,ticket,numberOfTickets,false,true);
                 customer.getTickets().add(ticket);
                 int newNumberOfPassenger = ticket.getNumberOfPassengers() - numberOfTickets;
                 ticket.setNumberOfPassengers(newNumberOfPassenger);
+                History history;
+                try{
+                    long historyIdToBuy = (Long) session.getAttribute("historyIdToBuy");
+                    history = ApplicationContext.getHistoryServiceImpl().findById(historyIdToBuy);
+                    history.setIsBought(true);
+                }catch (NullPointerException exception){
+                    history = new History(customer,ticket,numberOfTickets,false,true);
+                }
                 ApplicationContext.getTicketServiceImpl().createOrUpdate(ticket);
                 ApplicationContext.getHistoryServiceImpl().createOrUpdate(history);
                 ApplicationContext.getCustomerService().createOrUpdate(customer);
